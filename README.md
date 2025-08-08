@@ -13,7 +13,9 @@
 
 ## Зависимости
 Программа зависит от AWGProxy, что устанавливается через Golang. [Установите GoLang](https://go.dev/dl/), после установите [AWGProxy](https://github.com/dima424658/awgproxy) командой ниже
+
 ```go install github.com/pufferffish/awgproxy/cmd/awgproxy@v1.0.9 # or @latest```
+
 После этого программу можно успешно запускать.
 
 ## Постройка

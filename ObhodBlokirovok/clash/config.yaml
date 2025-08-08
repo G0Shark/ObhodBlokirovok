@@ -1,0 +1,58 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 198.18.0.2:53
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  enhanced-mode: fake-ip
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - tls://1.1.1.1
+    - tls://dns.google
+  fallback-filter:
+    geoip: true
+    geoip-code: US
+
+proxies:
+  - name: "socks5-proxy"
+    type: socks5
+    server: 127.0.0.1
+    port: 1080
+    udp: true
+
+proxy-groups:
+  - name: "YouTube-X"
+    type: select
+    proxies:
+      - "socks5-proxy"
+
+rules:
+  # YouTube
+  - DOMAIN-SUFFIX,youtube.com,YouTube-X
+  - DOMAIN-SUFFIX,googlevideo.com,YouTube-X
+  - DOMAIN-SUFFIX,ytimg.com,YouTube-X
+  - DOMAIN-SUFFIX,sponsor.ajay.com,YouTube-X
+  - DOMAIN-KEYWORD,youtube,YouTube-X
+  - DOMAIN-KEYWORD,googlevideo,YouTube-X
+  - DOMAIN-KEYWORD,ytimg,YouTube-X
+
+  # X.com / Twitter
+  - DOMAIN-SUFFIX,x.com,YouTube-X
+  - DOMAIN-SUFFIX,twitter.com,YouTube-X
+  - DOMAIN-KEYWORD,twitter,YouTube-X
+
+  # Остальное — напрямую
+  - MATCH,DIRECT

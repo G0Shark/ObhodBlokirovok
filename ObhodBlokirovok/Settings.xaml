@@ -1,0 +1,54 @@
+<Window x:Class="ObhodBlokirovok.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:ObhodBlokirovok"
+        mc:Ignorable="d"
+        Title="Настройки" Height="450" Width="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!-- Путь к файлу -->
+            <StackPanel Grid.Row="1" Margin="0 0 0 15">
+                <TextBlock Text="Уведомления" FontWeight="Bold"/>
+                <TextBlock Text="Включает всплывающие уведомления приложения." FontSize="11" Foreground="Gray"/>
+                <CheckBox Content="Включить уведомления."
+                          IsChecked="{Binding EnableNotifications}"
+                          Margin="0 5 0 0"/>
+            </StackPanel>
+
+            <!-- Тема -->
+            <StackPanel Grid.Row="2" Margin="0 0 0 15">
+                <TextBlock Text="Не закрывать приложение" FontWeight="Bold"/>
+                <TextBlock Text="Не закрывает приложение на нажатие 'x', вместо этого скрывает его в трей." FontSize="11" Foreground="Gray"/>
+                <CheckBox Content="Включить скрытие приложения в трей."
+                          IsChecked="{Binding EnableNoClose}"
+                          Margin="0 5 0 0"/>
+            </StackPanel>
+
+            <!-- Кнопки -->
+            <StackPanel Grid.Row="3" Margin="0 0 0 15">
+                <TextBlock Text="Автозапуск приложения." FontWeight="Bold"/>
+                <TextBlock Text="Автоматически запускает приложение от имени администратора." FontSize="11" Foreground="Gray"/>
+                <CheckBox Content="Включить автозапуск."
+                          Name="AutostartCB"
+                          IsChecked="{Binding EnableAutoStart}"
+                          Margin="0 5 0 0"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 20 0 0">
+                <Button Content="Сохранить" Width="100" Margin="0 0 10 0" Click="Save_Click"/>
+                <Button Content="Отмена" Width="100" Click="Cancel_Click"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

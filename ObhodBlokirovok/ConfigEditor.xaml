@@ -1,0 +1,36 @@
+<Window x:Class="ObhodBlokirovok.ConfigEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:ObhodBlokirovok"
+        mc:Ignorable="d"
+        Title="Редактор конфига" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Сохранить" Click="SaveFile_Click"/>
+                <MenuItem Header="Выход" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Редактировать">
+                <MenuItem Header="Копировать" Click="Copy_Click"/>
+                <MenuItem Header="Вставить" Click="Paste_Click"/>
+                <MenuItem Header="Вырезать" Click="Cut_Click"/>
+            </MenuItem>
+            <MenuItem Header="Шрифт">
+                <MenuItem Header="Увеличить" Click="IncreaseFont_Click"/>
+                <MenuItem Header="Уменьшить" Click="DecreaseFont_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <TextBox x:Name="editorTextBox" 
+                 AcceptsReturn="True" 
+                 AcceptsTab="True" 
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto" 
+                 FontSize="14"
+                 FontFamily="Consolas"
+                 SpellCheck.IsEnabled="True"
+        />
+    </DockPanel>
+</Window>

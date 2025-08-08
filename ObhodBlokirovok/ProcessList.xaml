@@ -1,0 +1,22 @@
+<Window x:Class="ProcessViewer.ProcessLIst"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Процессы" Height="600" Width="800">
+    <Grid>
+        <ListView x:Name="ProcessList" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Иконка" Width="40">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Icon}" Width="16" Height="16" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Имя процесса" Width="300" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="PID" Width="100" DisplayMemberBinding="{Binding Id}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

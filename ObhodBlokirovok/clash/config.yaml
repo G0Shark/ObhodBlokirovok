@@ -34,25 +34,23 @@ proxies:
     udp: true
 
 proxy-groups:
-  - name: "YouTube-X"
+  - name: "ObhodBlokirovok"
     type: select
     proxies:
       - "socks5-proxy"
 
 rules:
   # YouTube
-  - DOMAIN-SUFFIX,youtube.com,YouTube-X
-  - DOMAIN-SUFFIX,googlevideo.com,YouTube-X
-  - DOMAIN-SUFFIX,ytimg.com,YouTube-X
-  - DOMAIN-SUFFIX,sponsor.ajay.com,YouTube-X
-  - DOMAIN-KEYWORD,youtube,YouTube-X
-  - DOMAIN-KEYWORD,googlevideo,YouTube-X
-  - DOMAIN-KEYWORD,ytimg,YouTube-X
-
+  - DOMAIN-SUFFIX,youtube.com,ObhodBlokirovok
+  - DOMAIN-SUFFIX,googlevideo.com,ObhodBlokirovok
+  - DOMAIN-SUFFIX,ytimg.com,ObhodBlokirovok
+  - DOMAIN-SUFFIX,sponsor.ajay.com,ObhodBlokirovok
+  - DOMAIN-KEYWORD,youtube,ObhodBlokirovok
+  - DOMAIN-KEYWORD,googlevideo,ObhodBlokirovok
+  - DOMAIN-KEYWORD,ytimg,ObhodBlokirovok
   # X.com / Twitter
-  - DOMAIN-SUFFIX,x.com,YouTube-X
-  - DOMAIN-SUFFIX,twitter.com,YouTube-X
-  - DOMAIN-KEYWORD,twitter,YouTube-X
-
-  # Остальное — напрямую
-  - MATCH,DIRECT
+  - DOMAIN-SUFFIX,x.com,ObhodBlokirovok
+  - DOMAIN-SUFFIX,twitter.com,ObhodBlokirovok
+  - DOMAIN-KEYWORD,twitter,ObhodBlokirovok
+  # Discord
+  - PROCESS-NAME,Discord.exe,ObhodBlokirovok

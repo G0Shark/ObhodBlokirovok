@@ -38,7 +38,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         Console.SetOut(new RichTextBoxWriter(ConsoleOutput));
-        AppendColoredText(ConsoleOutput, "ObhodBlokirovok, ver. 0.0.0.1\nПрограмма сделанна G0Shark.\n", Brushes.White);
+        AppendColoredText(ConsoleOutput, "ObhodBlokirovok, ver. 1.0.0.0\nПрограмма сделанна G0Shark.\n", Brushes.White);
         AppendColoredText(AWGProxyOutput, "Тут будут логи от AWGProxy\n", Brushes.White);
         AppendColoredText(ClashOutput, "Тут будут логи от Clash\n", Brushes.White);
 
